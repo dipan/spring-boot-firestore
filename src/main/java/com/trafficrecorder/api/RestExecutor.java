@@ -1,5 +1,10 @@
 package com.trafficrecorder.api;
 
-public abstract class RestExecutor {
-    static final String BASE_URL="/api";
+import org.springframework.http.ResponseEntity;
+
+@FunctionalInterface
+public interface RestExecutor {
+    String BASE_URL = "/api";
+
+    public ResponseEntity<Object> execute();
 }

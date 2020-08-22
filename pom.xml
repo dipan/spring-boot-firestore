@@ -7,6 +7,18 @@
     <groupId>com</groupId>
     <artifactId>traffic-recorder-firestore</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
@@ -71,6 +83,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-gcp-data-firestore</artifactId>
             <version>1.2.4.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.uuid/java-uuid-generator -->
+        <dependency>
+            <groupId>com.fasterxml.uuid</groupId>
+            <artifactId>java-uuid-generator</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
     </dependencies>

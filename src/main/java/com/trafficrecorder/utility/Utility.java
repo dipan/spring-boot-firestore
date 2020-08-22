@@ -1,7 +1,10 @@
 package com.trafficrecorder.utility;
 
+import com.trafficrecorder.api.RestExecutor;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,5 +35,10 @@ public class Utility {
 
     public static long getUTCTimestamp() {
         return new DateTime(new DateTime(), DateTimeZone.UTC).getMillis();
+    }
+
+    public static ResponseEntity<Object> buildRestResponse(RestExecutor restExecutor){
+        ResponseEntity<Object> execute = restExecutor.execute();
+        return new ResponseEntity<>(execute, HttpStatus.OK);
     }
 }

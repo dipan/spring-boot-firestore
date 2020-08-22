@@ -1,29 +1,21 @@
 package com.trafficrecorder.service;
 
 import com.trafficrecorder.datamodel.Website;
-import com.trafficrecorder.repository.WebsiteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@Service
-public class WebsiteService {
-    @Autowired
-    WebsiteRepository websiteRepository;
+public interface WebsiteService {
+    public Mono<Website> save(Website website);
 
-    public Mono<Website> save(Website website){
-        return websiteRepository.save(website);
-    }
+    public Flux<Website> get();
 
-    public Flux<Website> get(){
-        return websiteRepository.findAll();
-    }
+    public Mono<Website> getById(String id);
 
-    public Mono<Website> getById(String id){
-        return websiteRepository.findById(id);
-    }
-    public Mono<Website> updateById(String id, Website website){
-        return save(website);
-    }
+    public Flux<Website> getByWebsite(String website);
+
+    public Mono<Website> updateById(String id, Website website);
+
+    public void delete();
+
+    public Mono<Void> deleteById(String id);
 }

@@ -5,6 +5,8 @@ import com.trafficrecorder.utility.Utility;
 import lombok.ToString;
 import org.springframework.cloud.gcp.data.firestore.Document;
 
+import java.util.UUID;
+
 @ToString
 @Document
 public class Website {
@@ -15,6 +17,11 @@ public class Website {
     private Long contactCountLimit;
     private Long ct;
     private Long lu;
+
+    public Website() {
+        this.setCt();
+        this.updateLu();
+    }
 
     public String getId() {
         return id;
